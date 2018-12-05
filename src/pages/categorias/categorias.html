@@ -1,16 +1,130 @@
 
 <ion-header>
-    <ion-navbar>
+    <ion-navbar class="nav">
   <button ion-button menuToggle color="dark">
     <ion-icon name="menu"></ion-icon>
   </button>
   
-    <ion-title>Categorias</ion-title>
+    <ion-title class="titulo">Peça Show</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
+  <div >
+    <ion-segment [(ngModel)]="peca">
+      <ion-segment-button value="carro">
+        CARRO
+      </ion-segment-button>
+      <ion-segment-button value="moto">
+        MOTO
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+
+
+  
+  <div [ngSwitch]="peca">
+    <ion-list *ngSwitchCase="'carro'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/998225-car-garage/png/016-radiator.png">
+        </ion-thumbnail>
+        <h2>Radiador</h2>
+       
+      </ion-item>
+      
+    </ion-list>
+</div>
+    <div [ngSwitch]="peca">
+      <ion-list *ngSwitchCase="'carro'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/998225-car-garage/png/022-battery.png">
+          </ion-thumbnail>
+          <h2>Bateria</h2>
+         
+        </ion-item>
+        
+      </ion-list>
+  </div>
+  <div [ngSwitch]="peca">
+    <ion-list *ngSwitchCase="'carro'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/998225-car-garage/png/028-piston-1.png">
+        </ion-thumbnail>
+        <h2>Pistão 1</h2>
+       
+      </ion-item>
+      
+    </ion-list>
+</div>
+    <div [ngSwitch]="peca">
+      <ion-list *ngSwitchCase="'carro'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/998225-car-garage/png/027-piston-2.png">
+          </ion-thumbnail>
+          <h2>Pistão 2</h2>
+         
+        </ion-item>
+        
+      </ion-list>
+  </div>
+
+
+
+
+  <div [ngSwitch]="peca">
+    <ion-list *ngSwitchCase="'moto'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/865926-motorcycle/png/001-wheels.png">
+        </ion-thumbnail>
+        <h2>Rodas</h2>
+      </ion-item>
+      
+    </ion-list>
+  </div>
+  <div [ngSwitch]="peca">
+  <ion-list *ngSwitchCase="'moto'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/865926-motorcycle/png/007-exhaust-1.png">
+      </ion-thumbnail>
+      <h2>Exaustor</h2>
+    </ion-item>
+    
+  </ion-list>
+</div>
+<div [ngSwitch]="peca">
+  <ion-list *ngSwitchCase="'moto'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/865926-motorcycle/png/006-piston.png">
+      </ion-thumbnail>
+      <h2>Pistão</h2>
+    </ion-item>
+    
+  </ion-list>
+</div>
+<div [ngSwitch]="peca">
+<ion-list *ngSwitchCase="'moto'">
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img src="assets/imgs/865926-motorcycle/png/016-battery.png">
+    </ion-thumbnail>
+    <h2>Bateria</h2>
+  </ion-item>
+  
+</ion-list>
+</div>
+
+
+
 
 </ion-content>
