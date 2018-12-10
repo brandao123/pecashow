@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import firebase from 'firebase';
 
 /**
  * Generated class for the CategoriasPage page.
@@ -15,40 +16,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoriasPage {
 
-  searchQuery: string = '';
-  items: string[];
+  categoriamoto : any[] = new Array();
 
+  categoriacarro : any[] = new Array();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.initializeItems();
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams) {
+    
   }
-
-  initializeItems() {
-    this.items = [
-      'Motor',
-      'Óleo',
-      
-    ];
-  }
-
-  getItems(ev: any) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set val to the value of the searchbar
-    const val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
-  }
-
+  
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
+    this.getList();
   }
+
+  getList(){
+    var postRef = firebase.firestore()
+    .collection("categoriacarro, categoriamoto");
+
+    postRef.get().then(query => {
+      query.forEach(doc => {
+        this.categoriacarro.push(doc.data());
+        this.categoriamoto.push(doc.data());
+      });
+    });
+  }
+
+  
+
+
+  
 
 }
