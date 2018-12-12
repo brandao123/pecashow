@@ -10,6 +10,7 @@ import { StorageService } from '../../services/storage.service';
 })
 export class HomePage {
 
+  
   public user : any;
   @ViewChild('usuario') email; // campo do formulário
   @ViewChild('senha') password; // campo do formulário
@@ -57,6 +58,6 @@ export class HomePage {
     msg.present();
   }
 
-
+ 
 
 }

@@ -11,6 +11,7 @@ import { StorageService } from '../services/storage.service';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
+
 @NgModule({
   declarations: [
     MyApp
@@ -32,7 +33,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    StorageService
+    StorageService,
+  
   ]
 })
 export class AppModule {}
