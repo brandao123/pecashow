@@ -1,5 +1,18 @@
-export interface categoriacarro{
+export interface categoriaCarro{
+    categoria: string;
+
+    descricao: string;
+
+    foto: string;
+
     id: string;
-    nomeCategoria: string;
+
+    preco: string;
+
+    usuario: string;
+
+    link: string;
+
+    endereco: string;
 
 }

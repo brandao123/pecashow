@@ -1,11 +1,12 @@
 
-<ion-header>
-    <ion-navbar class="nav">
-  <button ion-button menuToggle color="dark">
-    <ion-icon name="menu"></ion-icon>
+<ion-header class="titulo">
+    <ion-navbar>
+  <button ion-button menuToggle color="link">
+    
+    <ion-icon ios="ios-build" md="md-build"></ion-icon>
   </button>
   
-    <ion-title class="titulo">Peça Show</ion-title>
+    <ion-title >Peça Show</ion-title>
   </ion-navbar>
   
 </ion-header>
@@ -29,13 +30,16 @@
   
   <div [ngSwitch]="peca">
     <ion-list *ngSwitchCase="'carro'">
-      <ion-card *ngFor="let carros of categoriacarro">
+      <ion-card *ngFor="let carros of categoriaCarro">
       <ion-item class="cinza1">
         <ion-avatar>
           <img src="{{carros.foto}}">
         </ion-avatar>
-        <h2>{{carros.nomeCategoria}}</h2> 
+        <h2>{{carros.categoria}}</h2>
+        
+        
         <button ion-button round item-end (click)="showAlert()">Ver Ofertas</button>
+        <a href="{{carros.link}}">Ver no Mapa</a>
     
       </ion-item>
       </ion-card>
@@ -44,14 +48,15 @@
 
 <div [ngSwitch]="peca">
     <ion-list *ngSwitchCase="'moto'">
-      <ion-card *ngFor="let motos of categoriamoto">
+      <ion-card *ngFor="let motos of categoriaMoto">
       <ion-item class="cinza1">
         <ion-avatar>
           <img src="{{motos.foto}}">
         </ion-avatar>
-        <h2>{{motos.nomeCategoria}}</h2> 
+        <h2>{{motos.categoria}}</h2> 
+        
         <button ion-button round item-end (click)="showAlert()">Ver Ofertas</button>
-    
+        <a href="{{motos.link}}">Ver no Mapa</a>
       </ion-item>
       </ion-card>
     </ion-list>

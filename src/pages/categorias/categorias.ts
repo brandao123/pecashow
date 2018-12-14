@@ -18,23 +18,16 @@ import { AlertController } from 'ionic-angular';
 export class CategoriasPage {
 
   _alertCtrl: any;
-  categoriamoto : any[] = new Array();
+  categoriaMoto : any[] = new Array();
 
-  categoriacarro : any[] = new Array();
+  categoriaCarro : any[] = new Array();
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController,
      public navParams: NavParams) {
     
   }
-  showAlert() {
-    const alert = this.alertCtrl.create({
-      title: 'R$ 200,00',
-      subTitle: 'Rua Barcellos Domingos, 124',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
+ 
 
 
   ionViewDidLoad() {
@@ -44,11 +37,11 @@ export class CategoriasPage {
 
   getListCarro(){
     var postRef = firebase.firestore()
-    .collection("categoriacarro");
+    .collection("categoriaCarro");
 
     postRef.get().then(query => {
       query.forEach(doc => {
-        this.categoriacarro.push(doc.data());
+        this.categoriaCarro.push(doc.data());
         
       });
     });
@@ -56,11 +49,11 @@ export class CategoriasPage {
 
   getListMoto(){
     var postRef = firebase.firestore()
-    .collection("categoriamoto");
+    .collection("categoriaMoto");
 
     postRef.get().then(query => {
       query.forEach(doc => {
-        this.categoriamoto.push(doc.data());
+        this.categoriaMoto.push(doc.data());
         
       });
     });
