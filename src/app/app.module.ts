@@ -10,19 +10,21 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { StorageService } from '../services/storage.service';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     MyApp
   ],
   imports: [
-    BrowserModule,
+      BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FirebaseConfig), // Inicializa o firebase conforme 
-                                                    // firebase.config.ts
-    AngularFireStorageModule,
+    AngularFireModule.initializeApp(FirebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
+    ReactiveFormsModule,
+    FormsModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,8 +35,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    StorageService,
-  
+    StorageService
   ]
 })
-export class AppModule {}
+export class AppModule {
+ 
+}

@@ -1,5 +1,5 @@
 
-<ion-header class="titulo">
+<ion-header class="">
     <ion-navbar>
   <button ion-button menuToggle color="link">
     
@@ -12,60 +12,38 @@
 </ion-header>
 
 
-<ion-content padding class="cinza1" class="card-background-page">
+<ion-content padding  class="card-background-page">
   <div >
     <ion-segment [(ngModel)]="peca" class="branco">
       <ion-segment-button value="carro">
-        CARRO
+        PEÇAS
       </ion-segment-button>
-      <ion-segment-button value="moto">
-        MOTO
-      </ion-segment-button>
+      
     </ion-segment>
   </div>
-
-
-
-
-  
+ 
   <div [ngSwitch]="peca">
     <ion-list *ngSwitchCase="'carro'">
       <ion-card *ngFor="let carros of categoriaCarro">
-      <ion-item class="cinza1">
+      <ion-item class="titulo">
         <ion-avatar>
           <img src="{{carros.foto}}">
         </ion-avatar>
         <h2>{{carros.categoria}}</h2>
         
-        
-        <button ion-button round item-end (click)="showAlert()">Ver Ofertas</button>
         <a href="{{carros.link}}">Ver no Mapa</a>
     
       </ion-item>
       </ion-card>
     </ion-list>
 </div>
-
-<div [ngSwitch]="peca">
-    <ion-list *ngSwitchCase="'moto'">
-      <ion-card *ngFor="let motos of categoriaMoto">
-      <ion-item class="cinza1">
-        <ion-avatar>
-          <img src="{{motos.foto}}">
-        </ion-avatar>
-        <h2>{{motos.categoria}}</h2> 
-        
-        <button ion-button round item-end (click)="showAlert()">Ver Ofertas</button>
-        <a href="{{motos.link}}">Ver no Mapa</a>
-      </ion-item>
-      </ion-card>
-    </ion-list>
-</div>
-
-
-
-
   
+
+
+
+
+
+
 <ion-card >
   <img src="assets/imgs/nissan.jpg"/>
   <div class="card-title">Nissan Juke</div>
@@ -80,88 +58,3 @@
 </ion-content>
 
 
-
-
-
-
-
-
-
-
-<!--
-
-    <div [ngSwitch]="peca">
-      <ion-list *ngSwitchCase="'carro'">
-        <ion-item class="cinza1">
-          <ion-thumbnail item-start>
-            <img src="assets/imgs/998225-car-garage/png/022-battery.png">
-          </ion-thumbnail>
-          <h2>Bateria</h2> <button ion-button href="bateriacarro/bateriacarro.html" color="success" clear>Ver local e preço</button>
-         
-        </ion-item>
-       
-      </ion-list>
-  </div>
-   
-  <div [ngSwitch]="peca">
-    <ion-list *ngSwitchCase="'carro'">
-      <ion-item class="cinza1">
-        <ion-thumbnail item-start>
-          <img src="assets/imgs/998225-car-garage/png/028-piston-1.png">
-        </ion-thumbnail>
-        <h2>Pistão 1</h2> <button ion-button href="pistao1/pistao1.html" color="success" clear>Ver local e preço</button>
-       
-      </ion-item>
-      
-    </ion-list>
-</div>
-    <div [ngSwitch]="peca">
-      <ion-list *ngSwitchCase="'carro'">
-        <ion-item class="cinza1">
-          <ion-thumbnail item-start>
-            <img src="assets/imgs/998225-car-garage/png/027-piston-2.png">
-          </ion-thumbnail>
-          <h2>Pistão 2</h2> <button ion-button href="pistao2/pistao2.html" color="success" clear>Ver local e preço</button>
-         
-        </ion-item>
-        
-      </ion-list>
-  </div>
-
-
--->
-  <!--
-  <div [ngSwitch]="peca">
-  <ion-list *ngSwitchCase="'moto'">
-    <ion-item class="cinza1">
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/865926-motorcycle/png/007-exhaust-1.png">
-      </ion-thumbnail>
-      <h2>Exaustor</h2> <button ion-button href="exaustor/exaustor.html" color="success" clear>Ver local e preço</button>
-    </ion-item>
-    
-  </ion-list>
-</div>
-<div [ngSwitch]="peca">
-  <ion-list *ngSwitchCase="'moto'">
-    <ion-item class="cinza1">
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/865926-motorcycle/png/006-piston.png">
-      </ion-thumbnail>
-      <h2>Pistão</h2> <button ion-button href="pistao/pistao.html" color="success" clear>Ver local e preço</button>
-    </ion-item>
-    
-  </ion-list>
-</div>
-<div [ngSwitch]="peca">
-<ion-list *ngSwitchCase="'moto'">
-  <ion-item class="cinza1">
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/865926-motorcycle/png/016-battery.png">
-    </ion-thumbnail>
-    <h2>Bateria</h2> <button ion-button href="bateriamoto/bateriamoto.html" color="success" clear>Ver local e preço</button>
-  </ion-item>
-  
-</ion-list>
-</div>
--->

@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, Button } from 'ionic-angular';
 import firebase from 'firebase';
 import { AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the CategoriasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -32,7 +26,7 @@ export class CategoriasPage {
 
   ionViewDidLoad() {
     this.getListCarro();
-    this.getListMoto();
+    
   }
 
   getListCarro(){
@@ -47,17 +41,7 @@ export class CategoriasPage {
     });
   }
 
-  getListMoto(){
-    var postRef = firebase.firestore()
-    .collection("categoriaMoto");
-
-    postRef.get().then(query => {
-      query.forEach(doc => {
-        this.categoriaMoto.push(doc.data());
-        
-      });
-    });
-  }
+  
 
   
   

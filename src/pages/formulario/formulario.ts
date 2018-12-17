@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
-import { AngularFirestore } from 'angularfire2/firestore';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorage } from 'angularfire2/storage';
-
+import { Firebase } from '@ionic-native/firebase';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 @IonicPage()
 @Component({
   selector: 'page-formulario',
@@ -14,13 +15,17 @@ import { AngularFireStorage } from 'angularfire2/storage';
 export class FormularioPage {
 
   formGroup : FormGroup;
+  firestore = firebase.firestore();
+  settings = {timestampsInSnapshots: false};
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     public firestore: AngularFirestore,
-     public firebaseauth: AngularFireAuth,
+     public firebaseauth : AngularFireAuth ,
+  
      public storage: AngularFireStorage,
      public formBuilder: FormBuilder) {
+
+      this.firestore.settings(this.settings);
 
       this.formGroup = this.formBuilder.group({
         preco: ['', [Validators.required]],
@@ -36,15 +41,21 @@ export class FormularioPage {
   }
 
   cadastrar(){
-    // Cria um id único
-    let id = this.firestore.createId();
-    // Utiliza o id no formulário
-    this.formGroup.controls['id'].setValue(id);
     // Pega o id único do usuário
-    this.formGroup.controls['usuario'].setValue(
-      this.firebaseauth.auth.currentUser.uid);
-    
+     this.formGroup.controls['id'].setValue(this.firebaseauth.auth.currentUser.uid);
+   
+       firebase.firestore().collection("categoriaCarro").add(
+         this.formGroup.value
+       ).then(function(ref){
+         // Sucesso
+        console.log("sucesso");
+        console.log(ref.id);
+       }).catch(err => {
+         console.log(err);
+       });
+   
 
-  }
+   
+     }
 
 }
