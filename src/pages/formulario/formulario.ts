@@ -17,6 +17,7 @@ export class FormularioPage {
   formGroup : FormGroup;
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: false};
+  imagem : any;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -42,14 +43,15 @@ export class FormularioPage {
 
   cadastrar(){
     // Pega o id único do usuário
-     this.formGroup.controls['id'].setValue(this.firebaseauth.auth.currentUser.uid);
+ 
    
        firebase.firestore().collection("categoriaCarro").add(
          this.formGroup.value
-       ).then(function(ref){
+       ).then(ref=>{
          // Sucesso
-        console.log("sucesso");
+        console.log("Cadastrado com sucesso");
         console.log(ref.id);
+        this.add(ref.id);
        }).catch(err => {
          console.log(err);
        });
@@ -57,5 +59,31 @@ export class FormularioPage {
 
    
      }
+
+     enviaArquivo(event){
+      // Pega o arquivo 
+      this.imagem = event.srcElement.files[0];
+    }
+  
+    add(id : string){
+     
+      // Diretório + caminho imagem no servidor
+      let caminho = firebase.storage().ref().child(`carros/${id}.jpg`);
+      // Executa o upload
+      caminho.put(this.imagem).then(resp => {
+        // Se sucesso, pega a url para download da imagem
+        caminho.getDownloadURL().then(url=>{
+          // adicionar a url da imagem no form
+          //this.formGroup.controls['imagem'].setValue(this.msg = url);
+          // Cadastra os dados no Firestone
+          console.log("imagem enviada")
+          this.firestore.collection("categoriaCarro")
+            .doc(id).update({'foto' : url, 'id' : id});
+        });
+      }).catch(err => {
+        //Houve algum erro
+        console.log(err.message);
+      })
+    }
 
 }

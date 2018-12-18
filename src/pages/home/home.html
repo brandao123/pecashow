@@ -1,24 +1,31 @@
 <ion-header>
-  
+  <ion-navbar>
+    <button ion-button menuToggle color="dark">
+      
+      <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
+    </button>
+    
+      <ion-title class="headerlogin">Login</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding class="loginmeio">
-  <h3 class="loginnome">LOGIN</h3>
+  
 
   <ion-list>
-    <ion-item class="cima">
+    <ion-item class="botao1">
       <ion-label stacked class="loginnome">Usuário</ion-label>
       <ion-input type="text" #usuario class="loginnome"></ion-input>
     </ion-item>
-    <ion-item class="cima">
+    <ion-item class="botao2">
 
-      <ion-label stacked class="loginnome">Senha</ion-label>
+      <ion-label stacked >Senha</ion-label>
       <ion-input type="password" #senha class="loginnome"></ion-input>
     </ion-item>
   </ion-list>
 
   <button ion-button block (click)="login()" class="botao">ENTRAR</button>
-  <button ion-button block (click)="cadastro()" class="botao2">REGISTRAR</button>
+  <button ion-button block (click)="cadastro()" class="botao">REGISTRAR</button>
 
 
 </ion-content>

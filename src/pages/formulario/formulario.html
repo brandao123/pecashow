@@ -5,7 +5,7 @@
       <button ion-button menuToggle color="dark">
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Formulário</ion-title>
+    <ion-title class="headerform">Cadastro de peças</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,31 +13,28 @@
 
 <ion-content padding>
 
-<ion-card>
-  <ion-item>
-    <input type="file" (change)="enviarArquivo($event)"/>
+<ion-card >
+  <ion-item class="form">
+    <input clear type="file" (change)="enviaArquivo($event)"/>
   </ion-item>
 </ion-card>
 <ion-card>
   <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
-    <ion-item>
+    <ion-item class="form">
       <ion-label stacked>Categoria</ion-label>
       <ion-input formControlName="categoria" type="text"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="form">
       <ion-label stacked>Preço</ion-label>
       <ion-input formControlName="preco" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
+    </ion-item> 
+    <ion-item class="form">
       <ion-label stacked>Descrição</ion-label>
       <ion-input formControlName="descricao" type="text"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label stacked>Usuário</ion-label>
-      <ion-input formControlName="id" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <button>Enviar</button>
+
+    <ion-item class="form">
+      <button ion-button clear>Enviar</button>
     </ion-item>
   </form>
 </ion-card>
