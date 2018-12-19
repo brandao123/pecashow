@@ -32,6 +32,7 @@ export class FormularioPage {
         preco: ['', [Validators.required]],
         categoria: ['', [Validators.required]],
         descricao: ['', [Validators.required]],
+        endereco: ['', [Validators.required]],
         id: [''],
         foto: ['']
       });

@@ -5,7 +5,7 @@
       <button ion-button menuToggle color="dark">
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title class="headerform">Cadastro de peças</ion-title>
+    <ion-title class="headerform">Peça Show</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,20 +21,24 @@
 <ion-card>
   <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
     <ion-item class="form">
-      <ion-label stacked>Categoria</ion-label>
-      <ion-input formControlName="categoria" type="text"></ion-input>
+      <ion-label stacked>Produto</ion-label>
+      <ion-input formControlName="categoria" type="text" placeholder="Digite o produto"></ion-input>
     </ion-item>
     <ion-item class="form">
       <ion-label stacked>Preço</ion-label>
-      <ion-input formControlName="preco" type="text"></ion-input>
+      <ion-input formControlName="preco" type="text" placeholder="Digite o preço"></ion-input>
     </ion-item> 
     <ion-item class="form">
       <ion-label stacked>Descrição</ion-label>
-      <ion-input formControlName="descricao" type="text"></ion-input>
+      <ion-input formControlName="descricao" type="text" placeholder="Digite a descrição"></ion-input>
+    </ion-item>
+    <ion-item class="form">
+      <ion-label stacked>Endereço</ion-label>
+      <ion-input formControlName="endereco" type="text" placeholder="Digite o endereço"></ion-input>
     </ion-item>
 
     <ion-item class="form">
-      <button ion-button clear>Enviar</button>
+      <button ion-button >Enviar</button>
     </ion-item>
   </form>
 </ion-card>

@@ -13,25 +13,22 @@
 
 
 <ion-content padding class="card-background-page">
-  <div >
-    <ion-segment [(ngModel)]="peca" class="branco">
-      <ion-segment-button value="carro">
-        PEÇAS
-      </ion-segment-button>
-      
-    </ion-segment>
-  </div>
+
  
-  <div [ngSwitch]="peca">
-    <ion-list *ngSwitchCase="'carro'">
+  <div>
+    <ion-list>
       <ion-card *ngFor="let carros of categoriaCarro">
       <ion-item class="titulo">
         <ion-avatar>
           <img src="{{carros.foto}}">
         </ion-avatar>
         <h2>{{carros.categoria}}</h2>
+        <h4>{{carros.descricao}}</h4>
+        <h3>{{carros.preco}}</h3>
+        <h3>{{carros.endereco}}</h3>
+
         
-        <a href="{{carros.link}}">Ver no Mapa</a>
+        
     
       </ion-item>
       </ion-card>
